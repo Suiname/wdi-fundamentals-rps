@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////
 /*   Provided Code - Please Don't Edit   */
 ////////////////////////////////////////////////
-'use strict';
+
 
 function getInput() {
     console.log("Please choose either 'rock', 'paper', or 'scissors'.")
@@ -25,14 +25,16 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return move = move || getInput();
+    move = move || getInput();
+    return move;
 }
 
 function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return move = move || randomPlay();
+    move = move || randomPlay();
+    return move;
 }
 
 function getWinner(playerMove,computerMove) {
@@ -63,13 +65,15 @@ function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
+    var result;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
     while ((playerWins != 5) && (computerWins != 5)){
-        if (getWinner(getPlayerMove(), getComputerMove()) === 'player'){
+        result = getWinner(getPlayerMove(), getComputerMove());
+        if (result === 'player'){
             playerWins++;
             console.log('Player wins');
-        } else if (getWinner(getPlayerMove(), getComputerMove()) === 'computer'){
+        } else if (result === 'computer'){
             computerWins++;
             console.log('Computer wins');
         } else {
